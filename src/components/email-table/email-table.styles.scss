@@ -1,0 +1,220 @@
+.emails {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+
+.emails td, .emails th {
+  padding: 8px 24px;
+}
+
+.emails tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.emails tbody tr:not(.open):hover {
+    background-color: #f2f2f2;
+    color: blue;
+    cursor: pointer;
+}
+
+.emails {
+  thead {
+    tr {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+.emails th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: #7c7c7c;
+}
+
+svg {
+    width: 10px;
+    transition: all 0.2s ease-out;
+}
+
+svg.desc {
+    transform: rotate(-180deg);
+}
+
+.header-label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.header-wrap {
+    cursor: pointer;
+}
+
+.sorted {
+  color: black;
+  font-weight: bold;
+}
+
+.from-to-mobile-icon {
+  display: none;
+}
+
+.date {
+  svg {
+    display: none;
+  }
+}
+
+.subject > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      flex: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 200px;
+      overflow: hidden;
+      padding-right: 16px;
+    }
+
+    svg {
+      width: 15px;
+    }
+}
+
+.to > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.from {
+  width: 200px;
+
+  > div {
+    text-overflow: ellipsis;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap
+  }
+}
+
+.to-count {
+  display: inline-flex;
+  background: gray;
+  color: white;
+  justify-content: center;
+  padding: 2px 4px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.email-body {
+  .attachments {
+    display: flex;
+    align-items: flex-end;
+
+    svg {
+      width: 15px;
+      margin-right: 8px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+
+  .emails th {
+    padding: 8px;
+  }
+
+  thead tr {
+    display: flex;
+  }
+
+  tbody tr {
+    display: grid;
+    grid-template-areas:
+      'mobileSpIcon from date'
+      'mobileSpIcon to to'
+      'subject subject subject';
+    grid-template-columns: 24px auto 100px;
+    padding: 8px 4px;
+  }
+
+  tbody tr:nth-child(2n) {
+    display: none;
+  }
+
+  tbody tr.open:nth-child(2n) {
+    display: block;
+  }
+
+  .from {
+    grid-area: from;
+  }
+
+  .to {
+    grid-area: to;
+  }
+
+  .subject {
+    grid-area: subject;
+  }
+
+  .date {
+    grid-area: date;
+    text-align: right;
+
+    span {
+      font-size: 12px;
+    }
+
+    svg {
+      height: 8px;
+      margin-left: 4px;
+      display: initial;
+    }
+  }
+
+  .from-to-mobile-icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    grid-area: mobileSpIcon;
+
+    svg {
+      width: 15px;
+    }
+  }
+
+  .emails td {
+    padding: 4px;
+  }
+
+  .emails th > div {
+    border-right: 1px solid gray;
+  }
+
+  .emails th:last-child > div {
+    border-right: none;
+  }
+
+  thead .sorted svg {
+    margin-right: 8px;
+  }
+
+  .result-count {
+    padding: 0 16px 16px;
+  }
+
+  .calendar-wrap {
+    margin: 8px 16px;
+  }
+}

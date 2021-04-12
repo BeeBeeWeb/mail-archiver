@@ -1,0 +1,33 @@
+.email-body {
+    height: 0;
+    overflow: hidden;
+    transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition-delay: 0.2s;
+    min-height: 0px;
+
+    > div {
+        padding: 8px 24px;
+    }
+}
+
+td.email-td {
+    padding: 0;
+    transition: padding 280ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.open {
+    .email-body {
+        height: 100px;
+        overflow: auto;
+    }
+
+    td.email-td {
+        padding: 8px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .email-body > div {
+        padding: 8px;
+    }
+}

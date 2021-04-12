@@ -1,0 +1,50 @@
+.calendar-wrap {
+  display: flex;
+
+  svg {
+    width: 20px;
+  }
+
+  .search-icon {
+    display: flex;
+    padding: 4px 8px;
+    background: #f2f2f2;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .calendar {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    // overflow: hidden;
+
+    .react-daterange-picker__wrapper {
+      flex-direction: row-reverse;
+      border: none;
+      border-right: 1px solid #ddd;
+      padding: 4px 12px;
+    }
+
+    button {
+      outline: none;
+    }
+
+    .react-calendar__tile--active {
+      background: #7e7e7e;
+    }
+
+    .react-daterange-picker__range-divider {
+      margin-right: 8px;
+    }
+  }
+}
+
+.result-count {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+  font-weight: bold;
+  color: gray;
+}
