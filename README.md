@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+Made this project as part of assignment step of an interview. Sharing the report and my thought process below -
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **REPORT**
 
-## Available Scripts
+- I started by analyzing the given mockup and mission requirement.
 
-In the project directory, you can run:
+- I was thinking about building the project in either **Angular** or **ReactJs**. I checked **HENNGE's** [tech stack](http://stackshare.io/hennge) and found that React is being used in their stack. So I decided to use React as well.
 
-### `npm start`
+- For styling, **SCSS** is being used. Added `node-sass` package to React so that it can preprocess SCSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- For the email table I had option of using `Material Table` which comes inbuilt with all the sorting and other useful table features. But I decided to build the table and sorting by myself as it would be good learning experience for me. Also it is easier to customize as per required UI when using your own implementation.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+- **Date Picker:** For Date range picker, I went with [wojtekmaj/react-daterange-picker](https://github.com/wojtekmaj/react-daterange-picker). It was very simple and provided simple API. Also, it was very easy to modify its UI with minimum efforts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+- **Mock Data:** Created mock emails list object. I have added dynamic dates for 2 emails so that they emulate today's time. I have also added dates for previous month and previous year to cover all cases shown in mockup.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Email table UI](screenshots/mock_data.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+- **Email table:** It is built using simple Html `<table></table>` element with custom sorting functionality.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Email table UI](screenshots/1.JPG)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Sorting:** For sorting functionality I have made use of `React Hooks` such as `useState` and `useMemo`. Sorting arrow dynamically changes orientation based on ascending or descending order of sorting. Column `font-weight` changes to `bold` for sorted column.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![sorting](screenshots/2.JPG)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Filter:** Emails are filtered based on the date range selected by user. By default the date is set to today's date. Filtered email list passed to email table component as `props`. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![UI](screenshots/3.JPG)
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Responsive:** For making the UI responsive for mobile screens I have used media queries targeting max width of `480px`. I have converted `table` html elements into `flex` structure in order to achieve the UI for mobile.
 
-### Analyzing the Bundle Size
+![UI](screenshots/4.JPG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
+- **Email Body:** Email body can be viewed by clicking on any of table row. It will expand right below so that it can be inspected. Multiple email rows can be expanded at once.
 
-### Making a Progressive Web App
+![UI](screenshots/5.JPG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
+**Dates:** If email date is today's date then it's is shown as time when the email was received. If it's not today's date then its is shown as `MMM d` format. If the email is from previous year then its shown in `yyyy/mm/d` format.
 
-### Advanced Configuration
+![UI](screenshots/6.JPG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
